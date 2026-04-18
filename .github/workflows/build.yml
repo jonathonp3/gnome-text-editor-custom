@@ -1,25 +1,51 @@
-name: Build Flatpak
-on: [push]
+name: Build Custom Text Editor
+on:
+  push:
+    branches: [main]
+  pull_request:
 
 jobs:
-  build:
+  flatpak:
+    name: "Build Flatpak"
     runs-on: ubuntu-latest
     container:
-      image: bilelmoussaoui/flatpak-github-actions:gnome-46
+      image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-48
+      options: --privileged
     steps:
-      - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
-      - name: Inject Themes
-        run: python3 update_manifest.py
+    # 1. Prepare Runtimes (This solves your error)
+    - name: Install GNOME Runtimes
+      run: |
+        flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+        flatpak remote-add --user --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
+        # Install Stable 50 runtimes
+        flatpak install --user -y flathub org.gnome.Sdk//50 org.gnome.Platform//50
+        # Install Master runtimes for the Devel build
+        flatpak install --user -y gnome-nightly org.gnome.Sdk//master org.gnome.Platform//master
 
-      - name: Build Stable
-        run: |
-          flatpak-builder --user --disable-rofiles-fuse --repo=repo --force-clean build-dir org.gnome.TextEditor.json
-          flatpak build-bundle repo gnome-text-editor-stable.flatpak org.gnome.TextEditor stable
+    # 2. Inject Themes
+    - name: Inject Themes and Patches
+      run: python3 update_manifest.py
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: stable-flatpak-bundle
-          path: gnome-text-editor-stable.flatpak
+    # 3. Build STABLE
+    - name: Build Stable Bundle
+      run: |
+        flatpak-builder --user --disable-rofiles-fuse --repo=repo-stable --force-clean build-dir-stable org.gnome.TextEditor.json
+        flatpak build-bundle repo-stable gnome-text-editor-stable.flatpak org.gnome.TextEditor stable
+
+    # 4. Build DEVELOPMENT
+    - name: Build Devel Bundle
+      run: |
+        flatpak-builder --user --disable-rofiles-fuse --repo=repo-devel --force-clean build-dir-devel org.gnome.TextEditor.Devel.json
+        flatpak build-bundle repo-devel gnome-text-editor-devel.flatpak org.gnome.TextEditor.Devel master
+
+    # 5. Upload finished files
+    - name: Upload Bundles
+      uses: actions/upload-artifact@v4
+      with:
+        name: custom-editor-bundles
+        path: |
+          gnome-text-editor-stable.flatpak
+          gnome-text-editor-devel.flatpak
 
