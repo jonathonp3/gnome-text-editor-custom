@@ -1,0 +1,25 @@
+name: Build Flatpak
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: bilelmoussaoui/flatpak-github-actions:gnome-46
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Inject Themes
+        run: python3 update_manifest.py
+
+      - name: Build Stable
+        run: |
+          flatpak-builder --user --disable-rofiles-fuse --repo=repo --force-clean build-dir org.gnome.TextEditor.json
+          flatpak build-bundle repo gnome-text-editor-stable.flatpak org.gnome.TextEditor stable
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: stable-flatpak-bundle
+          path: gnome-text-editor-stable.flatpak
+
