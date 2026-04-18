@@ -1,12 +1,11 @@
-name: Build Custom Text Editor
+name: Build and Release Custom Editor
 on:
   push:
     branches: [main]
-  pull_request:
 
 jobs:
   flatpak:
-    name: "Build Flatpak"
+    name: "Build and Release"
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-48
@@ -14,38 +13,42 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    # 1. Prepare Runtimes (This solves your error)
+    # 1. Prepare Runtimes
     - name: Install GNOME Runtimes
       run: |
         flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
         flatpak remote-add --user --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
-        # Install Stable 50 runtimes
         flatpak install --user -y flathub org.gnome.Sdk//50 org.gnome.Platform//50
-        # Install Master runtimes for the Devel build
         flatpak install --user -y gnome-nightly org.gnome.Sdk//master org.gnome.Platform//master
 
-    # 2. Inject Themes
-    - name: Inject Themes and Patches
+    # 2. Inject Themes via your Python script
+    - name: Inject Themes
       run: python3 update_manifest.py
 
     # 3. Build STABLE
-    - name: Build Stable Bundle
+    - name: Build Stable
       run: |
         flatpak-builder --user --disable-rofiles-fuse --repo=repo-stable --force-clean build-dir-stable org.gnome.TextEditor.json
         flatpak build-bundle repo-stable gnome-text-editor-stable.flatpak org.gnome.TextEditor stable
 
     # 4. Build DEVELOPMENT
-    - name: Build Devel Bundle
+    - name: Build Devel
       run: |
         flatpak-builder --user --disable-rofiles-fuse --repo=repo-devel --force-clean build-dir-devel org.gnome.TextEditor.Devel.json
         flatpak build-bundle repo-devel gnome-text-editor-devel.flatpak org.gnome.TextEditor.Devel master
 
-    # 5. Upload finished files
-    - name: Upload Bundles
-      uses: actions/upload-artifact@v4
+    # 5. Create a GitHub Release and upload the files
+    - name: Release
+      uses: softprops/action-gh-release@v2
       with:
-        name: custom-editor-bundles
-        path: |
+        tag_name: latest-build
+        name: "Latest Custom Build"
+        body: |
+          Automated build of GNOME Text Editor featuring 12 custom themes.
+          Primary Theme: Deep Oceanic.
+        files: |
           gnome-text-editor-stable.flatpak
           gnome-text-editor-devel.flatpak
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
