@@ -27,11 +27,11 @@ python3 update_manifest.py
 # Build
 flatpak run org.flatpak.Builder --force-clean --repo=repo-stable build-dir-stable org.gnome.TextEditor.json
 ```
-# Bundle
+### Bundle
 ```bash
 flatpak build-bundle repo-stable gnome-text-editor-stable.flatpak org.gnome.TextEditor stable
 ```
-# Install
+### Install
 ```bash
 flatpak install --user --reinstall gnome-text-editor-stable.flatpak
 ```
@@ -41,11 +41,11 @@ flatpak install --user --reinstall gnome-text-editor-stable.flatpak
 # Build
 flatpak run org.flatpak.Builder --force-clean --repo=repo-devel build-dir-devel org.gnome.TextEditor.Devel.json
 ```
-# Bundle
+### Bundle
 ```bash
 flatpak build-bundle repo-devel gnome-text-editor-devel.flatpak org.gnome.TextEditor.Devel master
 ```
-# Install
+### Install
 ```bash
 flatpak install --user --reinstall gnome-text-editor-devel.flatpak
 ```
