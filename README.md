@@ -13,7 +13,7 @@ Custom Flatpak build for GNOME Text Editor with 12+ premium themes and critical 
 * Space KDE
 * Sweet
 
-### AppImage
+### Flatpak
 
 - Download the latest release from [Releases](https://github.com/jonathonp3/gnome-text-editor-custom/releases/tag/latest-build)
 
