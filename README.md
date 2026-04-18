@@ -13,6 +13,11 @@ Custom Flatpak build for GNOME Text Editor with 12+ premium themes and critical 
 * Space KDE
 * Sweet
 
+### AppImage
+
+- Download the latest release from [Releases](https://github.com/jonathonp3/gnome-text-editor-custom/releases/tag/latest-build)
+
+
 ## 📥 Getting Started
 ```bash
 git clone git@github.com:jonathonp3/gnome-text-editor-custom.git
@@ -51,4 +56,5 @@ flatpak build-bundle repo-devel gnome-text-editor-devel.flatpak org.gnome.TextEd
 ```bash
 flatpak install --user --reinstall gnome-text-editor-devel.flatpak
 ```
+
 
