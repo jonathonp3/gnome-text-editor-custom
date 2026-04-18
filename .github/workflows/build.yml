@@ -3,6 +3,10 @@ on:
   push:
     branches: [main]
 
+# Add this block to give the runner permission to create the release
+permissions:
+  contents: write
+
 jobs:
   flatpak:
     name: "Build and Release"
