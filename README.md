@@ -25,6 +25,7 @@ python3 update_manifest.py
 ### Stable Version
 ```bash
 # Build
+flatpak install flathub org.gnome.Sdk//50 org.gnome.Platform//50
 flatpak run org.flatpak.Builder --force-clean --repo=repo-stable build-dir-stable org.gnome.TextEditor.json
 ```
 ### Bundle
@@ -39,6 +40,7 @@ flatpak install --user --reinstall gnome-text-editor-stable.flatpak
 ### Development Version (Master)
 ```bash
 # Build
+flatpak install gnome-nightly org.gnome.Sdk//master org.gnome.Platform//master
 flatpak run org.flatpak.Builder --force-clean --repo=repo-devel build-dir-devel org.gnome.TextEditor.Devel.json
 ```
 ### Bundle
