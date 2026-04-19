@@ -1,11 +1,10 @@
 {
   "app-id": "org.gnome.TextEditor.Devel",
-  "branch": "master",
-  "name": "Text Editor",
   "runtime": "org.gnome.Platform",
   "runtime-version": "master",
   "sdk": "org.gnome.Sdk",
   "command": "gnome-text-editor",
+  "branch": "master",
   "finish-args": [
     "--device=dri",
     "--share=ipc",
@@ -50,6 +49,7 @@
         "install -Dm644 solarized-light-modified-light.xml /app/share/gtksourceview-5/styles/",
         "install -Dm644 solarized-light-modified-soft-contrast.xml /app/share/gtksourceview-5/styles/",
         "install -Dm644 space-kde-slate.xml /app/share/gtksourceview-5/styles/",
+        "install -Dm644 sweet-neon-synthwave-high-contrast-red.xml /app/share/gtksourceview-5/styles/",
         "install -Dm644 sweet-neon-synthwave.xml /app/share/gtksourceview-5/styles/"
       ],
       "sources": [
@@ -96,6 +96,10 @@
         {
           "type": "file",
           "path": "space-kde-slate.xml"
+        },
+        {
+          "type": "file",
+          "path": "sweet-neon-synthwave-high-contrast-red.xml"
         },
         {
           "type": "file",

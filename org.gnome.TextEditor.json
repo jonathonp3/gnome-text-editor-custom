@@ -1,11 +1,10 @@
 {
   "app-id": "org.gnome.TextEditor",
-  "branch": "stable",
-  "name": "Text Editor",
   "runtime": "org.gnome.Platform",
   "runtime-version": "50",
   "sdk": "org.gnome.Sdk",
   "command": "gnome-text-editor",
+  "branch": "stable",
   "finish-args": [
     "--device=dri",
     "--share=ipc",
@@ -49,6 +48,7 @@
         "install -Dm644 solarized-light-modified-light.xml /app/share/gtksourceview-5/styles/",
         "install -Dm644 solarized-light-modified-soft-contrast.xml /app/share/gtksourceview-5/styles/",
         "install -Dm644 space-kde-slate.xml /app/share/gtksourceview-5/styles/",
+        "install -Dm644 sweet-neon-synthwave-high-contrast-red.xml /app/share/gtksourceview-5/styles/",
         "install -Dm644 sweet-neon-synthwave.xml /app/share/gtksourceview-5/styles/"
       ],
       "sources": [
@@ -98,6 +98,10 @@
         },
         {
           "type": "file",
+          "path": "sweet-neon-synthwave-high-contrast-red.xml"
+        },
+        {
+          "type": "file",
           "path": "sweet-neon-synthwave.xml"
         }
       ]
@@ -114,7 +118,11 @@
           "type": "git",
           "url": "https://github.com/editorconfig/editorconfig-core-c.git",
           "tag": "v0.12.10",
-          "commit": "99d757d197677d270644791f13fffe2644659985"
+          "commit": "99d757d197677d270644791f13fffe2644659985",
+          "x-checker-data": {
+            "type": "git",
+            "tag-pattern": "^v([\\d.]+)$"
+          }
         },
         {
           "type": "patch",
@@ -133,7 +141,11 @@
         {
           "type": "archive",
           "url": "https://download.gnome.org/sources/libspelling/0.4/libspelling-0.4.10.tar.xz",
-          "sha256": "56e3f01a3a18b575beea4c34349f99cdaba316e1f7c271b1231f7bcf5d9af73b"
+          "sha256": "56e3f01a3a18b575beea4c34349f99cdaba316e1f7c271b1231f7bcf5d9af73b",
+          "x-checker-data": {
+            "type": "gnome",
+            "name": "libspelling"
+          }
         }
       ]
     },
@@ -144,7 +156,11 @@
         {
           "type": "archive",
           "url": "https://download.gnome.org/sources/gnome-text-editor/50/gnome-text-editor-50.0.tar.xz",
-          "sha256": "9dc299da4daa085423b5d48db59f0021ad55e74143a5cb8ab2e5ffe17967f45b"
+          "sha256": "9dc299da4daa085423b5d48db59f0021ad55e74143a5cb8ab2e5ffe17967f45b",
+          "x-checker-data": {
+            "type": "gnome",
+            "name": "gnome-text-editor"
+          }
         },
         {
           "type": "patch",
