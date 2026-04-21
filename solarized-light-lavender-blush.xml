@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<style-scheme id="solarized-light-modified-soft-contrast" _name="Solarized Light (Soft Contrast)" version="1.0">
-  <author>Jonathon</author>
+<style-scheme id="solarized-light-lavender-blush _name="Solarized Light (Lavender Blush)" version="1.0">
+  <author>Craig Russell / Jonathon</author>
   <_description>Low contrast, soft Solarized theme with pink-white background</_description>
 
   <!-- Solarized Palette -->
@@ -11,7 +11,7 @@
   <color name="base0"   value="#839496"/>
   <color name="base1"   value="#93A1A1"/> <!-- Subtle Comments -->
   <color name="base2"   value="#EEE8D5"/> <!-- Selection/Highlight -->
-  <color name="base3"   value="#FFF0F3"/> <!-- Your Pink-White Background -->
+  <color name="base3"   value="#FFF0F3"/> <!-- Pink-White Background -->
   
   <color name="yellow"  value="#B58900"/>
   <color name="orange"  value="#CB4B16"/>

@@ -16,7 +16,7 @@
     "--filesystem=xdg-run/gvfs",
     "--filesystem=xdg-run/gvfsd",
     "--filesystem=host",
-    "--env=GTK_SOURCE_STYLE_SCHEME=deep-oceanic-navy"
+    "--env=GTK_SOURCE_STYLE_SCHEME=solarized-light-cosmic-latte"
   ],
   "cleanup": [
     "/include",
@@ -41,13 +41,23 @@
         "install -Dm644 andromeda-deep-space.xml /app/share/gtksourceview-5/styles/",
         "install -Dm644 ant-clean-light.xml /app/share/gtksourceview-5/styles/",
         "install -Dm644 deep-oceanic-navy.xml /app/share/gtksourceview-5/styles/",
+        "install -Dm644 dracula-official-high-contrast.xml /app/share/gtksourceview-5/styles/",
         "install -Dm644 dracula-official.xml /app/share/gtksourceview-5/styles/",
+        "install -Dm644 kimi-dark-modern-high-contrast.xml /app/share/gtksourceview-5/styles/",
+        "install -Dm644 kimi-dark-modern-muted.xml /app/share/gtksourceview-5/styles/",
+        "install -Dm644 kimi-dark-modern-soft.xml /app/share/gtksourceview-5/styles/",
         "install -Dm644 kimi-dark-modern.xml /app/share/gtksourceview-5/styles/",
         "install -Dm644 nord-light-arctic.xml /app/share/gtksourceview-5/styles/",
-        "install -Dm644 solarized-light-modified-2.xml /app/share/gtksourceview-5/styles/",
-        "install -Dm644 solarized-light-modified-extra-warm.xml /app/share/gtksourceview-5/styles/",
-        "install -Dm644 solarized-light-modified-light.xml /app/share/gtksourceview-5/styles/",
-        "install -Dm644 solarized-light-modified-soft-contrast.xml /app/share/gtksourceview-5/styles/",
+        "install -Dm644 solarized-light-champagne.xml /app/share/gtksourceview-5/styles/",
+        "install -Dm644 solarized-light-cosmic-latte.xml /app/share/gtksourceview-5/styles/",
+        "install -Dm644 solarized-light-extra-warm.xml /app/share/gtksourceview-5/styles/",
+        "install -Dm644 solarized-light-golden-parchment.xml /app/share/gtksourceview-5/styles/",
+        "install -Dm644 solarized-light-golden-sand.xml /app/share/gtksourceview-5/styles/",
+        "install -Dm644 solarized-light-lavender-blush.xml /app/share/gtksourceview-5/styles/",
+        "install -Dm644 solarized-light-light-gold.xml /app/share/gtksourceview-5/styles/",
+        "install -Dm644 solarized-light-muted-canvas.xml /app/share/gtksourceview-5/styles/",
+        "install -Dm644 space-kde-slate-high-contrast.xml /app/share/gtksourceview-5/styles/",
+        "install -Dm644 space-kde-slate-soft-high-contrast.xml /app/share/gtksourceview-5/styles/",
         "install -Dm644 space-kde-slate.xml /app/share/gtksourceview-5/styles/",
         "install -Dm644 sweet-neon-synthwave-high-contrast-red.xml /app/share/gtksourceview-5/styles/",
         "install -Dm644 sweet-neon-synthwave.xml /app/share/gtksourceview-5/styles/"
@@ -67,7 +77,23 @@
         },
         {
           "type": "file",
+          "path": "dracula-official-high-contrast.xml"
+        },
+        {
+          "type": "file",
           "path": "dracula-official.xml"
+        },
+        {
+          "type": "file",
+          "path": "kimi-dark-modern-high-contrast.xml"
+        },
+        {
+          "type": "file",
+          "path": "kimi-dark-modern-muted.xml"
+        },
+        {
+          "type": "file",
+          "path": "kimi-dark-modern-soft.xml"
         },
         {
           "type": "file",
@@ -79,19 +105,43 @@
         },
         {
           "type": "file",
-          "path": "solarized-light-modified-2.xml"
+          "path": "solarized-light-champagne.xml"
         },
         {
           "type": "file",
-          "path": "solarized-light-modified-extra-warm.xml"
+          "path": "solarized-light-cosmic-latte.xml"
         },
         {
           "type": "file",
-          "path": "solarized-light-modified-light.xml"
+          "path": "solarized-light-extra-warm.xml"
         },
         {
           "type": "file",
-          "path": "solarized-light-modified-soft-contrast.xml"
+          "path": "solarized-light-golden-parchment.xml"
+        },
+        {
+          "type": "file",
+          "path": "solarized-light-golden-sand.xml"
+        },
+        {
+          "type": "file",
+          "path": "solarized-light-lavender-blush.xml"
+        },
+        {
+          "type": "file",
+          "path": "solarized-light-light-gold.xml"
+        },
+        {
+          "type": "file",
+          "path": "solarized-light-muted-canvas.xml"
+        },
+        {
+          "type": "file",
+          "path": "space-kde-slate-high-contrast.xml"
+        },
+        {
+          "type": "file",
+          "path": "space-kde-slate-soft-high-contrast.xml"
         },
         {
           "type": "file",

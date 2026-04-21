@@ -8,7 +8,7 @@ from collections import OrderedDict
 DEVEL_MANIFEST_URL = "https://gitlab.gnome.org/GNOME/gnome-text-editor/-/raw/main/org.gnome.TextEditor.Devel.json"
 STABLE_MANIFEST = "org.gnome.TextEditor.json"
 DEVEL_MANIFEST = "org.gnome.TextEditor.Devel.json"
-DEFAULT_THEME_ID = "deep-oceanic-navy"
+DEFAULT_THEME_ID = "solarized-light-cosmic-latte"
 THEME_FILES = sorted(glob.glob("*.xml"))
 
 def download_devel_manifest():

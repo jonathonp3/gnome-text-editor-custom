@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<style-scheme id="solarized-light-modified-light" _name="Solarized Light Modified Light" version="1.0">
-  <author>Jonathon</author>
+<style-scheme id="solarized-light-golden-sand" _name="Solarized Light (Golden Sand)" version="1.0">
+  <author>Craig Russell / Jonathon</author>
   <_description>Modified Solarized light color palette</_description>
 
  <!-- Solarized Palette -->
@@ -11,7 +11,7 @@
   <color name="base0"   value="#839496"/>
   <color name="base1"   value="#93A1A1"/>
   <color name="base2"   value="#EEE8D5"/>
-  <color name="base3"   value="#F9EECB"/>
+  <color name="base3"   value="#F8E7B7"/>
   <color name="yellow"  value="#B58900"/>
   <color name="orange"  value="#CB4B16"/>
   <color name="red"     value="#DC322F"/>
